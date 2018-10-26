@@ -11,7 +11,8 @@ class Spike extends StatelessWidget{
       title: 'Spike App',
         home: Scaffold(
         appBar: AppBar(
-        title: Text('Spike App'),
+        title: Text('Spike'),
+//          textTheme: ba,
     ),
     body: LoginForm()
     )
@@ -35,13 +36,31 @@ class LoginFormState extends State<LoginForm>{
     // TODO: implement build
     return Form(
       key: _formLoginKey,
-      child: TextFormField(
-        validator: (value) {
-          if (value.isEmpty) {
-            return 'Please enter some text';
-          }
-        },
-      ),
+      child: Column(
+        children: <Widget>[
+          //email
+          TextFormField(
+            decoration: InputDecoration(
+                labelText: 'Email'
+            ),
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter some text';
+              }
+            },
+          ),
+          TextFormField(
+            decoration: InputDecoration(
+                labelText: 'Password'
+            ),
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter some text';
+              }
+            },
+          ),
+        ],
+      )
     );
   }
 
