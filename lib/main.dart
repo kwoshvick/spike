@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'InputValidator.dart';
 
 void main() => runApp(new Spike());
 
@@ -22,14 +23,14 @@ class Spike extends StatelessWidget{
 
 class LoginForm extends StatefulWidget{
   @override
-  LoginFormState createState() {
-    return LoginFormState();
+  LoginFormUI createState() {
+    return LoginFormUI();
   }
 
 }
 
 
-class LoginFormState extends State<LoginForm>{
+class LoginFormUI extends State<LoginForm>{
   final _formLoginKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -41,8 +42,9 @@ class LoginFormState extends State<LoginForm>{
           //email
           TextFormField(
             decoration: InputDecoration(
-                labelText: 'Email'
+                labelText: 'Email',
             ),
+            keyboardType: TextInputType.emailAddress,
             validator: (value) {
               if (value.isEmpty) {
                 return 'Please enter some text';
@@ -51,17 +53,26 @@ class LoginFormState extends State<LoginForm>{
           ),
           TextFormField(
             decoration: InputDecoration(
-                labelText: 'Password'
+                labelText: 'Password',
             ),
-            validator: (value) {
-              if (value.isEmpty) {
-                return 'Please enter some text';
-              }
-            },
+            keyboardType: TextInputType.text,
+//            validator: InputValidator.ValidateEmail
+//            },
           ),
+          RaisedButton(
+//            onPressed:,
+            child: new Text('LOGIN'),
+          )
         ],
       )
     );
   }
 
+}
+
+String validateName(String value) {
+  if (value.length < 3)
+    return 'Name must be more than 2 charater';
+  else
+    return null;
 }
