@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spike/user/view/user_view.dart';
+import 'package:spike/customLibs/AppRest.dart';
 
 class LoginForm extends StatefulWidget{
   @override
@@ -29,4 +30,18 @@ class SignUpScreen extends StatelessWidget {
     );
   }
 }
+//
+//class UserLogin{
+//  AppRest AR,
+//  void AuthenticateUser(String email, String password){
+//    bool _login = AR.LoginUser();
+//    if(_login){
+//
+//    }else{
+//
+//    }
+//
+//  }
+//
+//}
 
