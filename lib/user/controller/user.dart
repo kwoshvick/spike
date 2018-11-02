@@ -30,7 +30,7 @@ class SignUpScreen extends StatelessWidget {
     );
   }
 }
-//
+
 //class UserLogin{
 //  AppRest AR,
 //  void AuthenticateUser(String email, String password){

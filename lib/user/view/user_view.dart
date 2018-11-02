@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:spike/user/controller/user.dart';
 import 'package:spike/customLibs/InputFieldValidator.dart';
 import 'package:spike/customLibs/AppStrings.dart';
+import 'package:spike/customLibs/AppRest.dart';
 //import 'package:flutter/Va';
 
 
@@ -51,13 +52,13 @@ class LoginFormUI extends State<LoginForm> {
               },
             ),
             RaisedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SignUpScreen()),
-                );
-              },
-//              onPressed: this.submit,
+//              onPressed: () {
+//                Navigator.push(
+//                  context,
+//                  MaterialPageRoute(builder: (context) => SignUpScreen()),
+//                );
+//              },
+              onPressed: this.submit,
               child: new Text('LOGIN'),
             )
           ],
@@ -67,6 +68,8 @@ class LoginFormUI extends State<LoginForm> {
 
 
   void submit() {
+    AppRest ar = new AppRest();
+    ar.test();
     // First validate form.
     if (this._formLoginKey.currentState.validate()) {
       _formLoginKey.currentState.save(); // Save our form now.
